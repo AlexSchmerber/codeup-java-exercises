@@ -12,14 +12,14 @@ public class Bob {
                 System.out.println(bobReply + "Sure.");
             } else if(statementToBob.endsWith("!")){
                 System.out.println(bobReply + "Woah. Chill out!");
-            } else if( statementToBob == null){
+            } else if( statementToBob.trim().length() == 0){
                 System.out.println(bobReply + "Fine. Be that way!");
             } else{
                 System.out.println(bobReply + "Whatever.");
             }
             System.out.println("Continue talking to Bob? [y/n]");
             continueBob = sc.nextLine();
-        } while ("y".equalsIgnoreCase(continueBob));
+        } while (!"n".equalsIgnoreCase(continueBob));
         sc.close();
     }
 }
