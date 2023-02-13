@@ -49,20 +49,20 @@ public class MethodsExercises {
         Scanner input = new Scanner(System.in);
 //        getInteger(1, 10, input);
 
-//        long userNumber;
-//        String continueResponse = null;
-//        do {
-//            System.out.print("Enter a number between 1 and 10: ");
-//            userNumber = input.nextLong();
-//            if (userNumber > 10 || userNumber < 1){
-//                continue;
-//            }
-//            System.out.printf("You entered: %d\n", userNumber);
-//            input.nextLine();
-//            System.out.println("Continue? [y/n]");
-//            continueResponse = input.nextLine();
-//        } while (!"y".equalsIgnoreCase(continueResponse));
-//        getFactorial(userNumber, input);
+        long userNumber;
+        String continueResponse = null;
+        do {
+            System.out.print("Enter a number between 1 and 10: ");
+            userNumber = input.nextLong();
+            if (userNumber > 10 || userNumber < 1){
+                continue;
+            }
+            System.out.printf("You entered: %d\n", userNumber);
+            input.nextLine();
+            System.out.println("Continue? [y/n]");
+            continueResponse = input.nextLine();
+        } while (!"y".equalsIgnoreCase(continueResponse));
+        getFactorial(userNumber, input);
 
         System.out.println("Enter a number for the sides of a pair of dice: ");
         int sides = input.nextInt();
