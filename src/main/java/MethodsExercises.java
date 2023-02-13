@@ -40,6 +40,20 @@ public class MethodsExercises {
         return num;
     }
 
+    public static long factorialRecursion(int num){
+        if(num == 1){
+            return 1;
+        }
+        return factorialRecursion(num - 1) * num;
+    }
+
+    public static void rollDice(int sides) {
+        int roll1 = (int) (Math.random() * sides) + 1;
+        int roll2 = (int) (Math.random() * sides) + 1;
+        long sumRoll = roll1 + roll2;
+        System.out.printf("You rolled a %d and a %d\nTotal: %d", roll1, roll2, sumRoll);
+    }
+
     public static void main(String[] args) {
 //        System.out.println(subtract(5, 2));
 //        System.out.println(add(5, 2));
@@ -68,13 +82,5 @@ public class MethodsExercises {
         int sides = input.nextInt();
         rollDice(sides);
         input.close();
-    }
-
-    public static long rollDice(int sides) {
-        int roll1 = (int) (Math.random() * sides) + 1;
-        int roll2 = (int) (Math.random() * sides) + 1;
-        long sumRoll = roll1 + roll2;
-        System.out.printf("You rolled a %d and a %d\nTotal: %d", roll1, roll2, sumRoll);
-        return sumRoll;
     }
 }

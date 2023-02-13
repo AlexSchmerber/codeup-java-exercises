@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class HighLow {
     private static int randomNumber(){
         return (int) (Math.random() * 100) + 1;
-    };
+    }
     public static void main(String[] args) {
         runGame();
     }
@@ -27,6 +27,7 @@ public class HighLow {
         playAgain = input.nextLine();
         if("y".equalsIgnoreCase(playAgain)){
             runGame();
-        };
+        }
+        input.close();
     }
 }
