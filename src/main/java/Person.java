@@ -21,6 +21,12 @@ public class Person {
         System.out.println(this.name + " says hello!");
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 
     public static void main(String[] args) {
 
