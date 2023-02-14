@@ -1,9 +1,9 @@
 package util;
 import java.util.Scanner;
 public class Input {
-    private Scanner scanner;
+    private Scanner sc;
     public Input() {
-        this.scanner = new Scanner(System.in);
+        this.sc = new Scanner(System.in);
     }
     public static void main(String[] args) {
         Input myInput = new Input();
@@ -13,34 +13,47 @@ public class Input {
         System.out.println(myInput.getDouble(1.0, 1000.0));
 
     }
-    private String getString() {
-        return this.scanner.nextLine();
+    public String getString() {
+        return this.sc.nextLine();
     }
-    private Boolean yesNo(){
-        String input = this.scanner.nextLine();
-        if ("y".equalsIgnoreCase(input) || "yes".equalsIgnoreCase(input)){
-            return true;
-        }else {
-            return false;
-        }
+    public String getString(String prompt) {
+        System.out.println(prompt);
+        return getString();
+    }
+    public boolean yesNo(){
+        String input = getString();
+        return "y".equalsIgnoreCase(input) || "yes".equalsIgnoreCase(input);
     }
 
-    private int getInt(int min, int max){
-        System.out.printf("Type number between %d and %d", min, max);
-        scanner.next();
-        int input = this.scanner.nextInt();
+    public boolean yesNo(String prompt){
+        System.out.print(prompt);
+        return yesNo();
+    }
+
+    public int getInt(){
+        return sc.nextInt();
+    }
+
+    public int getInt(int min, int max){
+        System.out.printf("Enter a number between %d and %d%n", min, max);
+        int input = getInt();
         if(input > max || input < min){
             System.out.println("invalid number");
-            getInt(min, max);
+            return getInt(min, max);
         }
         return input;
     }
-    private Double getDouble(Double min, Double max){
-        System.out.printf("Type number between %d and %d", min, max);
-        Double input = this.scanner.nextDouble();
+
+    public double getDouble(){
+        return sc.nextDouble();
+    }
+
+    public double getDouble(Double min, Double max){
+        System.out.printf("Enter a number between %f and %f%n", min, max);
+        double input = getDouble();
         if(input > max || input < min){
             System.out.println("invalid number");
-            getDouble(min, max);
+            return getDouble(min, max);
         }
         return input;
     }
