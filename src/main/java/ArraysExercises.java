@@ -6,7 +6,6 @@ public class ArraysExercises {
     public static Object[] addPerson (Object[] people, Person person){
         Object[] newArray = Arrays.copyOf(people, people.length + 1);
         newArray[people.length] = person;
-        System.out.println(Arrays.toString(newArray));
 //        prints name but doesnt add to original array
         return newArray;
     }
@@ -21,7 +20,8 @@ public class ArraysExercises {
         for (Object person: newPeople) {
             System.out.println(person.toString());
         }
-        addPerson(newPeople, new Person("Romulus"));
-        System.out.println(Arrays.toString(newPeople));
+        Object[] newArray = addPerson(newPeople, new Person("Romulus"));
+        System.out.println(Arrays.toString(newArray));
+
     }
 }
