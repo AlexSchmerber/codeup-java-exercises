@@ -6,15 +6,15 @@ public class Square extends Rectangle{
         super (side, side);
     }
 
+    @Override
     public int getArea(){
-        System.out.println("override function");
+        System.out.println("override");
         return this.length * this.width;
     }
 
+    @Override
     public int getPerimeter(){
-        System.out.println("override function");
+        System.out.println("override");
         return this.length * 4;
     }
-
-
 }
