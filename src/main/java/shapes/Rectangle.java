@@ -2,12 +2,12 @@ package shapes;
 
 public class Rectangle {
 
-    public static int length;
-    public static int width;
+    public int length;
+    public int width;
 
     public Rectangle(int inputLength, int inputWidth) {
-        length = inputLength;
-        width = inputWidth;
+        this.length = inputLength;
+        this.width = inputWidth;
     }
 
     public int getArea(){
