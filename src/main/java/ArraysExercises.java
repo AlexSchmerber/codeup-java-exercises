@@ -5,8 +5,8 @@ import static java.util.Arrays.copyOf;
 public class ArraysExercises {
     public static Object[] addPerson (Object[] people, Person person){
         Object[] newArray = Arrays.copyOf(people, people.length + 1);
-        newArray[people.length] = person;
-//        prints name but doesnt add to original array
+        newArray[newArray.length - 1] = person;
+//        prints name but doesn't add to original array
         return newArray;
     }
     public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class ArraysExercises {
         newPeople[2] = new Person("Reginald");
         System.out.println(Arrays.toString(newPeople));
         for (Object person: newPeople) {
-            System.out.println(person.toString());
+            System.out.println(person);
         }
         Object[] newArray = addPerson(newPeople, new Person("Romulus"));
         System.out.println(Arrays.toString(newArray));
