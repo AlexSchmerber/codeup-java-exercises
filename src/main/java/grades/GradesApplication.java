@@ -31,7 +31,15 @@ public class GradesApplication {
         returnStudent();
         String userStudentSearch = sc.getString("Which student would you like to see more information on?\n");
         if(students.containsKey(userStudentSearch)){
-            students.get(userStudentSearch);
+            int avg = students.get(userStudentSearch).getGradesAverage();
+            String name = students.get(userStudentSearch).getName();
+            System.out.printf("Name: %s\nGithub Name: %s\nAverage Grade: %d\n", name, userStudentSearch, avg);
+            String nextResponse = sc.getString("Would you like to see another student (y/n)?");
+            if ("y".equalsIgnoreCase(nextResponse)){
+                checkStudent();
+            } else {
+                System.out.println("Goodbye");
+            }
         } else {
             String continueResponse = sc.getString("No matches for " + userStudentSearch + "\nContinue search (y/n)?");
             if ("y".equalsIgnoreCase(continueResponse)){
