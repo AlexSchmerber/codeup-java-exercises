@@ -8,17 +8,47 @@ public class GroceryApplication {
 
     private static Input sc = new Input();
 
-    private static boolean finalize = true;
+    private static boolean incomplete = true;
+
+    private static String categoryOptions = """
+                6. Other
+                5. Pharmacy
+                4. Grains & Wheat Products
+                3. Eggs & Dairy Products
+                2. Fish Products
+                1. Meat Products
+                Choose Category""";
 
     private static void enterItem() {
-        String user
+        String itemName = sc.getString("What is the name your new item:");
+        System.out.println(categoryOptions);
+        String category = null;
+        int categoryNum = sc.getInt(1, 6);
+        Input.sc.nextLine();
+        switch (categoryNum){
+            case 1 -> category = "Meat";
+            case 2 -> category = "Fish";
+            case 3 -> category = "Eggs & Dairy";
+            case 4 -> category = "Grains & Wheat";
+            case 5 -> category = "Pharmacy";
+            case 6 -> category = "Other";
+        }
+        int quantity = Integer.parseInt(sc.getString("Enter quantity of item"));
+        Grocery item = new Grocery(itemName, category, quantity);
+        System.out.println(item);
+        incomplete = false;
+        // change finalize to false;
     }
 
     public static void main(String[] args) {
         String userResponse = sc.getString("Would you like to create a grocery list (y/n)?");
         if("y".equalsIgnoreCase(userResponse)){
-            while(finalize){
+            while(incomplete){
                 enterItem();
+                String continueResponse = sc.getString("Would you like to add another item (y/n)?");
+                if(!"y".equalsIgnoreCase(continueResponse)){
+                    incomplete = false;
+                }
             }
         }
     }
