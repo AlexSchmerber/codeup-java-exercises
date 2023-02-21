@@ -1,14 +1,11 @@
 package grocerylist;
 import util.Input;
-import java.util.HashMap;
+
+import java.util.*;
 
 public class GroceryApplication {
 
-    static HashMap<String, Grocery> groceries = new HashMap<>();
-
     private static final Input sc = new Input();
-
-    private static boolean incomplete = true;
 
     private static String categoryOptions = """
                 6. Other
@@ -19,41 +16,54 @@ public class GroceryApplication {
                 1. Meat Products
                 Choose Category""";
 
-    static String category = null;
+    static String CATEGORY = null;
 
-    private static void categoryCases(int statement){
+    private static String categoryCases(int statement){
         switch (statement){
-            case 1 -> category = "Meat";
-            case 2 -> category = "Fish";
-            case 3 -> category = "Eggs & Dairy";
-            case 4 -> category = "Grains & Wheat";
-            case 5 -> category = "Pharmacy";
-            case 6 -> category = "Other";
+            case 1 -> CATEGORY = "Meat";
+            case 2 -> CATEGORY = "Fish";
+            case 3 -> CATEGORY = "Eggs & Dairy";
+            case 4 -> CATEGORY = "Grains & Wheat";
+            case 5 -> CATEGORY = "Pharmacy";
+            case 6 -> CATEGORY = "Other";
         }
+        return CATEGORY;
     }
 
-    private static void enterItem() {
+    private static void enterItem(ArrayList<Grocery> myList) {
         String itemName = sc.getString("What is the name your new item:");
         System.out.println(categoryOptions);
         int categoryNum = sc.getInt(1, 6);
         Input.sc.nextLine();
         categoryCases(categoryNum);
         int quantity = Integer.parseInt(sc.getString("Enter quantity of item"));
-        Grocery item = new Grocery(itemName, category, quantity);
-        groceries.put(itemName.toUpperCase(), item);
+        Grocery item = new Grocery(itemName, CATEGORY, quantity);
+        myList.add(item);
         System.out.println("Item added:\n" + item);
-        System.out.println("List: " + groceries);
+        System.out.println("List: " + myList);
+    }
+
+    private static void printList(ArrayList<Grocery> myList){
+        for (int i = 1; i <= 6; i++) {
+            for (Grocery item : myList){
+                if (categoryCases(i).equals(item.getCategory())) {
+                    System.out.println(item);
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
-        String userResponse = sc.getString("Would you like to create a grocery list (y/n)?");
-        if("y".equalsIgnoreCase(userResponse)){
-            while(incomplete){
-                enterItem();
-                String continueResponse = sc.getString("Would you like to add another item (y/n)?");
-                if(!"y".equalsIgnoreCase(continueResponse)){
-                    incomplete = false;
-                    System.out.println(groceries);
+        ArrayList<Grocery> myList = new ArrayList<>();
+        String userResponse = String.valueOf(sc.yesNo("Would you like to create a grocery list (y/n)?"));
+        if("true".equalsIgnoreCase(userResponse)){
+            while(true){
+                enterItem(myList);
+                String continueResponse = String.valueOf(sc.yesNo("Would you like to add another item (y/n)?"));
+                if(!"true".equalsIgnoreCase(continueResponse)){
+                    System.out.println("Your checkout list: ");
+                    printList(myList);
+                    break;
                 }
             }
         }

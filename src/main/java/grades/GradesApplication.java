@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class GradesApplication {
     static HashMap<String, Student> students = new HashMap<>();
-    private static Input sc = new Input();
+    private static final Input sc = new Input();
     public static void main(String[] args) {
         Student student1 = new Student("matt");
         Student student2 = new Student("joey");
