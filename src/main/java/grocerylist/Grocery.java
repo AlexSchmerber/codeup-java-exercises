@@ -9,7 +9,7 @@ public class Grocery {
 
     @Override
     public String toString() {
-        return name + " " + category + " " + quantity;
+        return "Name: " + name + " | Category: " + category + " | Quantity: "  + quantity;
     }
 
     public Grocery(String name, String category, int quantity) {
