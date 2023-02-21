@@ -11,7 +11,6 @@ public class Input {
         System.out.println(myInput.yesNo());
         System.out.println(myInput.getInt(1, 10));
         System.out.println(myInput.getDouble(1.0, 1000.0));
-
     }
     public String getString() {
         return this.sc.nextLine();
@@ -31,7 +30,14 @@ public class Input {
     }
 
     public int getInt(){
-        return sc.nextInt();
+        int userInt;
+        try{
+            userInt = Integer.parseInt(getString());
+            return userInt;
+        } catch (NumberFormatException e){
+            System.out.println("Invalid Number");
+            return getInt();
+        }
     }
 
     public int getInt(int min, int max){
@@ -45,7 +51,13 @@ public class Input {
     }
 
     public double getDouble(){
-        return sc.nextDouble();
+        double userDbl = 0;
+        try{
+            userDbl = Integer.parseInt(getString());
+        } catch (Exception e){
+            System.out.println("Invalid Number");
+        }
+        return userDbl;
     }
 
     public double getDouble(Double min, Double max){
