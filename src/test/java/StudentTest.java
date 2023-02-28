@@ -1,7 +1,7 @@
 import org.junit.Before;
+
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.testng.AssertJUnit.*;
@@ -11,7 +11,6 @@ public class StudentTest {
     private Student studentTest;
 
     private final ArrayList<Integer> testArray = new ArrayList<>();
-
 
     @Before
     public void setup(){
