@@ -1,3 +1,4 @@
+import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Before;
 
 import org.junit.Test;
@@ -9,6 +10,7 @@ import static org.testng.AssertJUnit.*;
 public class StudentTest {
 
     private Student studentTest;
+    private Student studentTest2;
 
     private final ArrayList<Integer> testArray = new ArrayList<>();
 
@@ -43,6 +45,11 @@ public class StudentTest {
 
     @Test
     public void testGetGradeAverage(){
-        assertEquals(7.5, studentTest.getGradeAverage());
+        assertEquals(7.5, studentTest.getGradeAverage(), .1);
     }
+
+//    @Test
+//    public void testAvgNoGrades(){
+//        assertEquals(ObjectUtils.Null, studentTest2.getGradeAverage(), .1);
+//    }
 }
