@@ -1,7 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
 import java.lang.reflect.Array;
-
 import java.util.ArrayList;
 
 import static org.testng.AssertJUnit.*;
@@ -9,13 +8,9 @@ import static org.testng.AssertJUnit.*;
 public class CohortTest {
 
     private Student studentTest1;
-
     private Student studentTest2;
-
     private Student studentTest3;
-
     private Cohort cohortTest;
-
     private final ArrayList<Integer> testArray = new ArrayList<>();
 
 
@@ -53,6 +48,4 @@ public class CohortTest {
 
         assertEquals(cohortTest.getCohortAverage(), 45, .5);
     }
-
-
 }
